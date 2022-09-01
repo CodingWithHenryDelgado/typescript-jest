@@ -37,7 +37,6 @@ export class Login extends React.Component<LoginProps, LoginState> {
 
     private async handleSubmit(event: SyntheticEvent) {
         event.preventDefault()
-
         this.setState({ loginAttempted: true })
 
         const result = await this.props.authService.login(
