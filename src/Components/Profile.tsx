@@ -18,31 +18,6 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
         userAttributes: []
     }
 
-    async componentDidMount() {
-        if (this.props.user) {
-            const userAltrs = await this.props.authService.getUserAttributes(this.props.user);
-            this.setState({
-                userAttributes: userAltrs
-            })
-        }
-    }
-
-    private renderUserAttributes() {
-        const rows = []
-        for (const userAttribute of this.state.userAttributes) {
-            rows.push(
-                <tr key={userAttribute.Name}>
-                    <td>{userAttribute.Name}</td>
-                    <td>{userAttribute.Value}</td>
-                </tr>)
-        }
-        return <table>
-            <tbody>
-                {rows}
-            </tbody>
-        </table>
-    }
-
     render() {
         let profileSpace
         if (this.props.user) {
@@ -63,5 +38,28 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
                 {profileSpace}
             </div>
         )
+    }
+
+    async componentDidMount() {
+        if (this.props.user) {
+            const userAltrs = await this.props.authService.getUserAttributes(this.props.user);
+            this.setState({
+                userAttributes: userAltrs
+            })
+        }
+    }
+
+    private renderUserAttributes() {
+        const rows = []
+        for (const userAttribute of this.state.userAttributes) {
+            if (userAttribute.name !== 'picture') {
+                rows.push(
+                    <tr key={userAttribute.name}>
+                        <td>{userAttribute.name}</td>
+                        <td>{userAttribute.value}</td>
+                    </tr>)
+            }
+        }
+        return rows
     }
 }

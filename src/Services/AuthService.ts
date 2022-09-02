@@ -13,22 +13,22 @@ export class AuthService {
     }
 
     public async getUserAttributes(user: User): Promise<UserAttribute[]> {
-        const result: UserAttribute[] = [];
+        const result: UserAttribute[] = []
         result.push({
-            Name: "Description",
-            Value: "Best User Ever!"
+            name: "Description",
+            value: "Best User Ever!"
         })
         result.push({
-            Name: "Job",
-            Value: "Software Engineer"
+            name: "Job",
+            value: "Software Engineer"
         })
         result.push({
-            Name: "Age",
-            Value: "22"
+            name: "Age",
+            value: "22"
         })
         result.push({
-            Name: "Experience",
-            Value: "Best User Ever!"
+            name: "Experience",
+            value: "Best User Ever!"
         })
         return result
     }

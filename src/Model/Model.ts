@@ -4,6 +4,13 @@ export interface User {
 }
 
 export interface UserAttribute {
-    Name: string,
-    Value: string
+    name: string,
+    value: string
+}
+
+export interface Space {
+    spaceId: string,
+    name: string,
+    location: string,
+    photoUrl?: string
 }

@@ -3,9 +3,11 @@ import { User } from './../Model/Model';
 import { Home } from './Home';
 import { AuthService } from './../Services/AuthService';
 import { Login } from './Login'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { Navbar } from './Navbar';
 import { Profile } from './Profile';
+import { Spaces } from './spaces/Spaces'
+import { DataService } from './../Services/DataService';
 
 interface AppState {
   user: User | undefined
@@ -14,6 +16,7 @@ interface AppState {
 export class App extends React.Component<{}, AppState> {
 
   private authService: AuthService = new AuthService();
+  private dataService: DataService = new DataService();
 
   constructor(props: any) {
     super(props)
@@ -38,8 +41,12 @@ export class App extends React.Component<{}, AppState> {
           <Navbar user={this.state.user} />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login authService={this.authService} setUser={this.setUser} />} />
+            {/* <Route path='/login' element={<Login authService={this.authService} setUser={this.setUser} />} /> */}
+            <Route
+              path='/login'
+              element={this.state.user ? <Navigate replace to="/profile" /> : <Login authService={this.authService} setUser={this.setUser} />} />
             <Route path='/profile' element={<Profile authService={this.authService} user={this.state.user} />} />
+            <Route path='/spaces' element={<Spaces dataService={this.dataService} />} />
           </Routes>
         </BrowserRouter>
       </div>

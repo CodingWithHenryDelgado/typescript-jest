@@ -1,7 +1,6 @@
 import React from "react";
 import { User } from "../Model/Model";
 import { Link } from 'react-router-dom';
-import { Navigate } from "react-router-dom";
 
 export class Navbar extends React.Component<{
     user: User | undefined
@@ -14,14 +13,13 @@ export class Navbar extends React.Component<{
         } else {
             loginLogOut = <Link to='/login' style={{ float: 'right' }}>Login</Link>
         }
+
         return (
             <div className="navbar">
                 <Link to="/">Home</Link>
                 <Link to="/profile">Profile</Link>
-                {this.props.user && (
-                    <Navigate to='/profile' replace={true} />
-                )}
                 {loginLogOut}
+                <Link to="/spaces">Spaces</Link>
             </div>
         )
     }
