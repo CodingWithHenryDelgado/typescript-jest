@@ -56,9 +56,9 @@ export class Login extends React.Component<LoginProps, LoginState> {
         let loginMessage: any;
         if (this.state.loginAttempted) {
             if (this.state.loginSuccessful) {
-                loginMessage = <label>Login Successful</label>
+                loginMessage = <label htmlFor="loginattempt" aria-labelledby='loginattempt'>Login Successful</label>
             } else {
-                loginMessage = <label>Sad face</label>
+                loginMessage = <label htmlFor="loginattempt" aria-labelledby='loginattempt'>Login Unsuccessful</label>
             }
         }
 
@@ -66,11 +66,11 @@ export class Login extends React.Component<LoginProps, LoginState> {
             <div>
                 <h2>Please login</h2>
                 <form onSubmit={e => this.handleSubmit(e)}>
-                    <input value={this.state.userName} onChange={e => this.setUserName(e)} /> <br />
-                    <input type="password" value={this.state.password} onChange={e => this.setPassword(e)} /> <br />
-                    <input value='login' type='submit' />
+                    <input id="loginattempt" type='username' value={this.state.userName} onChange={e => this.setUserName(e)} placeholder='Username' /> <br />
+                    <input type="password" value={this.state.password} onChange={e => this.setPassword(e)} placeholder='Password' /> <br />
+                    <input value='Login' type='submit' />
+                    {loginMessage}
                 </form>
-                {loginMessage}
             </div>
         )
     }
