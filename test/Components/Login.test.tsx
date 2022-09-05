@@ -18,9 +18,6 @@ describe('Login component test suite', () => {
     const setUserMock = jest.fn();
 
     beforeEach(() => {
-        // container = document.createElement("div");
-        // document.body.appendChild(container);
-        // const root = createRoot(container!);
         act(() => {
             render(
                 <Login authService={authServiceMock as any} setUser={setUserMock} />
@@ -28,8 +25,6 @@ describe('Login component test suite', () => {
         })
     })
     afterEach(() => {
-        // document.body.removeChild(container);
-        // container.remove();
         jest.clearAllMocks();
     })
 

@@ -5,7 +5,7 @@ export class AuthService {
         if (userName === 'user' && password === "1234") {
             return {
                 userName,
-                email: 'some@email.com'
+                email: 'some@Email.com'
             }
         } else {
             return undefined
