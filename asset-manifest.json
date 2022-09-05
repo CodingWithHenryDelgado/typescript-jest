@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/typescript-jest/static/css/main.51b75fae.css",
-    "main.js": "/typescript-jest/static/js/main.75a4e6ae.js",
-    "index.html": "/typescript-jest/index.html",
-    "main.51b75fae.css.map": "/typescript-jest/static/css/main.51b75fae.css.map",
-    "main.75a4e6ae.js.map": "/typescript-jest/static/js/main.75a4e6ae.js.map"
+    "main.css": "/typescript-jest/home/static/css/main.51b75fae.css",
+    "main.js": "/typescript-jest/home/static/js/main.75a4e6ae.js",
+    "index.html": "/typescript-jest/home/index.html",
+    "main.51b75fae.css.map": "/typescript-jest/home/static/css/main.51b75fae.css.map",
+    "main.75a4e6ae.js.map": "/typescript-jest/home/static/js/main.75a4e6ae.js.map"
   },
   "entrypoints": [
     "static/css/main.51b75fae.css",
