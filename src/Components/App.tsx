@@ -41,11 +41,12 @@ export class App extends React.Component<{}, AppState> {
           <Navbar user={this.state.user} />
           <Routes>
             <Route path='/' element={<Home />} />
-            {/* <Route path='/login' element={<Login authService={this.authService} setUser={this.setUser} />} /> */}
             <Route
               path='/login'
               element={this.state.user ? <Navigate replace to="/profile" /> : <Login authService={this.authService} setUser={this.setUser} />} />
-            <Route path='/profile' element={<Profile authService={this.authService} user={this.state.user} />} />
+            <Route
+              path='/profile'
+              element={this.state.user ? <Profile authService={this.authService} user={this.state.user} /> : <Navigate replace to="/login" />} />
             <Route path='/spaces' element={<Spaces dataService={this.dataService} />} />
           </Routes>
         </BrowserRouter>

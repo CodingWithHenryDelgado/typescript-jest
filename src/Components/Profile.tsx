@@ -1,7 +1,6 @@
 import React from "react";
 import { User, UserAttribute } from './../Model/Model';
 import { AuthService } from './../Services/AuthService';
-import { Link } from 'react-router-dom'
 
 interface ProfileState {
     userAttributes: UserAttribute[]
@@ -26,15 +25,10 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
                 Here are your attributes:
                 {this.renderUserAttributes()}
             </div>
-        } else {
-            profileSpace =
-                <div className="profile-space-login">
-                    Please <Link to='/login'>Login</Link>
-                </div>
         }
+
         return (
             <div className='profile-page'>
-                <h3 className='profile-welcome'>Hello I am a profile page!</h3>
                 {profileSpace}
             </div>
         )
