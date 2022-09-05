@@ -41,8 +41,8 @@ describe('Login component test suite', () => {
     })
 
     it('Passes credentials correctly', async () => {
-        const loginInput = screen.getByPlaceholderText('Username');
-        const passwordInput = screen.getByPlaceholderText('Password');
+        const loginInput = screen.getByPlaceholderText('Hint: user');
+        const passwordInput = screen.getByPlaceholderText('Hint: 1234');
         const loginButton = screen.getByDisplayValue('Login');
 
         await act(async () => {
@@ -60,8 +60,8 @@ describe('Login component test suite', () => {
 
     it('Correctly handles login success', async () => {
         authServiceMock.login.mockResolvedValueOnce(someUser);
-        const loginInput = screen.getByPlaceholderText('Username');
-        const passwordInput = screen.getByPlaceholderText('Password');
+        const loginInput = screen.getByPlaceholderText('Hint: user');
+        const passwordInput = screen.getByPlaceholderText('Hint: 1234');
         const loginButton = screen.getByDisplayValue('Login');
 
         await act(async () => {
@@ -78,8 +78,8 @@ describe('Login component test suite', () => {
 
     it('Correctly handles login fail', async () => {
         authServiceMock.login.mockResolvedValueOnce(undefined);
-        const loginInput = screen.getByPlaceholderText('Username');
-        const passwordInput = screen.getByPlaceholderText('Password');
+        const loginInput = screen.getByPlaceholderText('Hint: user');
+        const passwordInput = screen.getByPlaceholderText('Hint: 1234');
         const loginButton = screen.getByDisplayValue('Login');
 
         await act(async () => {
@@ -93,7 +93,3 @@ describe('Login component test suite', () => {
         console.log('Login Unsuccessful');
     });
 })
-
-function createRoot(arg0: HTMLDivElement) {
-    throw new Error('Function not implemented.');
-}

@@ -7,7 +7,7 @@ export class Home extends React.Component {
                 <div className="welcome">
                 </div>
                 <div className="welcome-text">
-                    Welcome to your new home!
+                    Welcome to your temp home!
                 </div>
             </>
         )

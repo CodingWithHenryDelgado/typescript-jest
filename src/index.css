@@ -20,7 +20,7 @@ code {
 
 /* Add a black background color to the top navigation */
 .navbar {
-  background-color: #5E5745;
+  background-color: #E26812;
   overflow: hidden;
 }
 
@@ -37,7 +37,7 @@ code {
 
 /* Change the color of links on hover */
 .navbar a:hover {
-  background-color: #ddd;
+  background-color: #FFC52D;
   color: black;
 }
 
@@ -112,7 +112,6 @@ code {
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
   padding: 20px 10px;
   height: auto;
@@ -133,7 +132,9 @@ code {
   border: 1px solid #E26812;
 }
 
-.login-submit {
+.login-submit,
+.reserve,
+.close {
   text-decoration: none;
   background-color: #E26812;
   border: none;
@@ -142,6 +143,12 @@ code {
   padding: 10px 25px;
   text-transform: uppercase;
   font-size: 1rem;
+  margin-top: 5px;
+}
+
+.login-attempt {
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 /* PROFILE PAGE CSS */
@@ -166,14 +173,34 @@ code {
 
 /* SPACES PAGE CSS 320px Mobile */
 
+.space-page {
+  background-color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.space-header {
+  font-size: 1.2rem;
+}
+
 .spaceComponent {
-  display: inline-block;
-  width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 2px solid #E26812;
+  border-radius: 10px;
+  padding: 5px 5px 10px 5px;
+  width: 90%;
   margin: 5px;
   overflow: auto;
 }
 
 img {
+  border-radius: 10px;
   max-width: 100%;
   max-height: 100%;
 }
@@ -181,5 +208,169 @@ img {
 .name {
   text-align: center;
   text-transform: uppercase;
-  color: blueviolet;
+  font-weight: bold;
+  color: #5E5745;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+tr, td {
+  border: 1px solid black;
+	padding: 8px;
+}
+
+td:nth-child(1) {
+  width: 100px;
+}
+
+/* MODAL COMPONENT CSS 320px Mobile */
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* TABLET SIZES 768PX */
+
+@media (min-width: 768px) {
+
+  /* Navbar 768px */
+
+  .navbar a {
+    font-size: 1.5rem;
+  }
+
+/* Login Pages Tablet 768px */
+
+  .login-form {
+    height: 150px;
+    width: 40%;
+  }
+
+  .login-header {
+    font-size: 1.25rem;
+  }
+  
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Space Component Tablet 768px */
+
+  .space-header {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    width: 100%;
+  }
+
+  .space-page {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+  }
+
+  .spaceComponent {
+    justify-content: space-evenly;
+    height: 400px;
+    max-height: 400px;
+    width: 40%;
+    margin: 10px 0;
+  }
+
+  img {
+    height: 250px;
+    width: 300px;
+    padding-left: 5px;
+  }
+
+  .name,
+  .location,
+  .spaceId {
+    padding-left: 5px;
+  }
+
+  .reserve {
+    margin-left: 5px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  /* Navbar 1024px */
+
+  .navbar a {
+    font-size: 1.75rem;
+  }
+
+  /* Space CSS Tablet 1024px */
+
+  .space-header {
+    font-size: 2rem;
+  }
+
+  img {
+    height: 250px;
+    width: 400px;
+    max-height: 250px;
+    max-width: 400px;
+  }
+
+  .spaceComponent {
+    max-height: 420px;
+    max-width: 420px;
+  }
+
+  /* Login CSS Tablet 1024px */
+
+  .login-header,
+  .login-submit {
+    font-size: 1.75rem;
+  }
+
+  .login-form-container {
+    height: 75%;
+    max-height: 75%;
+  }
+
+  .login-form {
+    max-height: 250px;
+    height: 100%;
+    position: relative;
+    justify-content: flex-start;
+    padding: 15px 10px 0 10px;
+    max-width: 350px;
+  }
+
+  .login-form > input:nth-child(1),
+  .login-form > input:nth-child(3) {
+    font-size: 1.75rem;
+    padding: 5px 25px 5px 5px;
+  }
+
 }

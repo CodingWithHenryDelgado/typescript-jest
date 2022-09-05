@@ -56,9 +56,9 @@ export class Login extends React.Component<LoginProps, LoginState> {
         let loginMessage: any;
         if (this.state.loginAttempted) {
             if (this.state.loginSuccessful) {
-                loginMessage = <label htmlFor="loginattempt" aria-labelledby='loginattempt'>Login Successful</label>
+                loginMessage = <label className='login-attempt' htmlFor="loginattempt" aria-labelledby='loginattempt'>Login Successful</label>
             } else {
-                loginMessage = <label htmlFor="loginattempt" aria-labelledby='loginattempt'>Login Unsuccessful</label>
+                loginMessage = <label className='login-attempt' htmlFor="loginattempt" aria-labelledby='loginattempt'>Login Unsuccessful</label>
             }
         }
 
@@ -68,8 +68,8 @@ export class Login extends React.Component<LoginProps, LoginState> {
                     <h2 className='login-header'>Log in to your account</h2>
                     <div className='login-form-container'>
                         <form className='login-form' onSubmit={e => this.handleSubmit(e)}>
-                            <input id="loginattempt" type='username' value={this.state.userName} onChange={e => this.setUserName(e)} placeholder='Username' /> <br />
-                            <input type="password" value={this.state.password} onChange={e => this.setPassword(e)} placeholder='Password' /> <br />
+                            <input id="loginattempt" type='username' value={this.state.userName} onChange={e => this.setUserName(e)} placeholder='Hint: user' /> <br />
+                            <input type="password" value={this.state.password} onChange={e => this.setPassword(e)} placeholder='Hint: 1234' /> <br />
                             <input className='login-submit' value='Login' type='submit' />
                             {loginMessage}
                         </form>

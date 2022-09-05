@@ -28,7 +28,7 @@ export class AuthService {
         })
         result.push({
             name: "Experience",
-            value: "Best User Ever!"
+            value: "Center Centre"
         })
         return result
     }

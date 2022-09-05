@@ -1,4 +1,5 @@
 {
+  "homepage": "http://HenryDelGlitch.github.io/typescript-jest",
   "name": "typescript-jest",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
@@ -47,6 +50,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/react-test-renderer": "^18.0.0",
+    "gh-pages": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-jsdom": "^29.0.1",
     "react-test-renderer": "^18.2.0"

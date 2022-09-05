@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { DataService } from './../../Services/DataService';
-import { Space } from "../../Model/Model";
+import { Space, User } from "../../Model/Model";
 import { SpaceComponent } from './SpaceComponent';
 import { ConfirmModalComponent } from './ConfirmModalComponent';
 
@@ -11,6 +11,7 @@ interface SpacesState {
 }
 
 interface SpacesProps {
+    user: User | undefined,
     dataService: DataService
 }
 
@@ -35,15 +36,20 @@ export class Spaces extends Component<SpacesProps, SpacesState> {
 
     private async reserveSpace(spaceId: string) {
         const reservationResult = await this.props.dataService.reserveSpace(spaceId)
-        if (reservationResult) {
+        if (reservationResult && this.props.user) {
             this.setState({
                 showModal: true,
-                modalContent: `You reserved the space with id ${spaceId} and got the reservation number ${reservationResult}`
+                modalContent: `You reserved a room in Hotel: ${spaceId}! Reservation Number: ${reservationResult}`
+            })
+        } else if ((reservationResult && !this.props.user) || (reservationResult === undefined && !this.props.user)) {
+            this.setState({
+                showModal: true,
+                modalContent: `Please login to reserve a spot..`
             })
         } else {
             this.setState({
                 showModal: true,
-                modalContent: `You can't reserve the space with id ${spaceId}`
+                modalContent: `Sorry but this hotel is fully booked!`
             })
         }
     }
@@ -53,10 +59,11 @@ export class Spaces extends Component<SpacesProps, SpacesState> {
         for (const space of this.state.spaces) {
             rows.push(
                 <SpaceComponent
-                    key={space.spaceId}
+                    spaceId={space.spaceId}
+                    photoUrl={space.photoUrl}
                     location={space.location}
                     name={space.name}
-                    spaceId={space.spaceId}
+                    key={space.spaceId}
                     reserveSpace={this.reserveSpace}
                 />
             )
@@ -72,9 +79,9 @@ export class Spaces extends Component<SpacesProps, SpacesState> {
     }
 
     render() {
-        return (<div>
+        return (<div className="space-page">
             <>
-                <h2>Welcome to the Spaces page!</h2>
+                <h2 className="space-header">Find your temporary new home!</h2>
                 {this.renderSpaces()}
                 <ConfirmModalComponent
                     close={this.closeModal}

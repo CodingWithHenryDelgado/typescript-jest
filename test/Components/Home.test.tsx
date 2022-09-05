@@ -11,7 +11,7 @@ describe('home test suite', () => {
                 <Home />
             )
         })
-        const helloText = screen.getByText('Welcome to your new home!');
+        const helloText = screen.getByText('Welcome to your temp home!');
         expect(helloText).toBeInTheDocument();
     })
 });

@@ -3,6 +3,7 @@ import { User } from './../Model/Model';
 import { Home } from './Home';
 import { AuthService } from './../Services/AuthService';
 import { Login } from './Login'
+import { Logout } from './Logout';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { Navbar } from './Navbar';
 import { Profile } from './Profile';
@@ -25,6 +26,13 @@ export class App extends React.Component<{}, AppState> {
     }
 
     this.setUser = this.setUser.bind(this)
+    this.clearUser = this.clearUser.bind(this);
+  }
+
+  private clearUser() {
+    this.setState({
+      user: undefined
+    });
   }
 
   private setUser(user: User) {
@@ -45,9 +53,12 @@ export class App extends React.Component<{}, AppState> {
               path='/login'
               element={this.state.user ? <Navigate replace to="/profile" /> : <Login authService={this.authService} setUser={this.setUser} />} />
             <Route
+              path='/logout'
+              element={this.state.user ? <Logout authService={this.authService} user={this.state.user} clearUser={this.clearUser} /> : <Navigate replace to="/login" />} />
+            <Route
               path='/profile'
               element={this.state.user ? <Profile authService={this.authService} user={this.state.user} /> : <Navigate replace to="/login" />} />
-            <Route path='/spaces' element={<Spaces dataService={this.dataService} />} />
+            <Route path='/spaces' element={<Spaces dataService={this.dataService} user={this.state.user} />} />
           </Routes>
         </BrowserRouter>
       </div>
