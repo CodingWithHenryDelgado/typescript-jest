@@ -3,9 +3,13 @@ import React from "react";
 export class Home extends React.Component {
     render() {
         return (
-            <div>
-                Hello I am a home page!
-            </div>
+            <>
+                <div className="welcome">
+                </div>
+                <div className="welcome-text">
+                    Welcome to your new home!
+                </div>
+            </>
         )
     }
 }

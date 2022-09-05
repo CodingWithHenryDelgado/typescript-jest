@@ -29,7 +29,7 @@ describe('Login component test suite', () => {
     })
 
     it('Renders correctly initial document', () => {
-        const title = screen.getByText('Please login');
+        const title = screen.getByText('Log in to your account');
         expect(title).toBeTruthy();
 
         const inputs = screen.getAllByDisplayValue('');

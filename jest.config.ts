@@ -19,7 +19,10 @@ const config: Config.InitialOptions = {
         'src/**/*.{ts,tsx}',
         '!src/Services/**',
         '!src/declaration.d.ts'
-    ]
+    ],
+    "moduleNameMapper": {
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
 }
 
 export default config;

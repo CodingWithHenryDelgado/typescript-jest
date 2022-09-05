@@ -1,5 +1,5 @@
 import { Component } from "react";
-import './ConfirmModalComponentProps.css';
+// import './ConfirmModalComponentProps.css';
 
 interface ConfirmModalComponentProps {
     show: boolean,

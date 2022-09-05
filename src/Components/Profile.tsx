@@ -21,20 +21,20 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
     render() {
         let profileSpace
         if (this.props.user) {
-            profileSpace = <div>
-                <h3>Hello {this.props.user.userName}</h3>
+            profileSpace = <div className='profile-space'>
+                <h3 className="profile-header">Hello {this.props.user.userName}</h3>
                 Here are your attributes:
                 {this.renderUserAttributes()}
             </div>
         } else {
             profileSpace =
-                <div>
+                <div className="profile-space-login">
                     Please <Link to='/login'>Login</Link>
                 </div>
         }
         return (
-            <div>
-                Hello I am a profile page!
+            <div className='profile-page'>
+                <h3 className='profile-welcome'>Hello I am a profile page!</h3>
                 {profileSpace}
             </div>
         )
@@ -54,7 +54,7 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
         for (const userAttribute of this.state.userAttributes) {
             if (userAttribute.name !== 'picture') {
                 rows.push(
-                    <tr key={userAttribute.name}>
+                    <tr className='userAttributes' key={userAttribute.name}>
                         <td>{userAttribute.name}</td>
                         <td>{userAttribute.value}</td>
                     </tr>)

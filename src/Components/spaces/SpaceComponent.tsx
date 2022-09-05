@@ -1,6 +1,5 @@
 import { Component } from "react";
-import genericImage from '../../assets/generic-image.jpg';
-import './SpaceComponent.css'
+// import './SpaceComponent.css';
 
 interface SpaceComponentProps {
     spaceId: string,
@@ -11,12 +10,14 @@ interface SpaceComponentProps {
 }
 
 export class SpaceComponent extends Component<SpaceComponentProps> {
-
     private renderImage() {
+
+        const image = require("../../assets/generic-image.jpg");
+
         if (this.props.photoUrl) {
-            return <img src={this.props.photoUrl} alt={this.props.name} />
+            return <img src={image} alt={this.props.name} />
         } else {
-            return <img src={genericImage} alt='' />
+            return <img src={image} alt='' />
         }
     }
 

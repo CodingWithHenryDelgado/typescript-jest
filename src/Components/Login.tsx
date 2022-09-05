@@ -63,14 +63,18 @@ export class Login extends React.Component<LoginProps, LoginState> {
         }
 
         return (
-            <div>
-                <h2>Please login</h2>
-                <form onSubmit={e => this.handleSubmit(e)}>
-                    <input id="loginattempt" type='username' value={this.state.userName} onChange={e => this.setUserName(e)} placeholder='Username' /> <br />
-                    <input type="password" value={this.state.password} onChange={e => this.setPassword(e)} placeholder='Password' /> <br />
-                    <input value='Login' type='submit' />
-                    {loginMessage}
-                </form>
+            <div className='login-page'>
+                <div className="login-container">
+                    <h2 className='login-header'>Log in to your account</h2>
+                    <div className='login-form-container'>
+                        <form className='login-form' onSubmit={e => this.handleSubmit(e)}>
+                            <input id="loginattempt" type='username' value={this.state.userName} onChange={e => this.setUserName(e)} placeholder='Username' /> <br />
+                            <input type="password" value={this.state.password} onChange={e => this.setPassword(e)} placeholder='Password' /> <br />
+                            <input className='login-submit' value='Login' type='submit' />
+                            {loginMessage}
+                        </form>
+                    </div>
+                </div>
             </div>
         )
     }
