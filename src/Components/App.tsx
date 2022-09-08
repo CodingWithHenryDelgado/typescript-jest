@@ -39,7 +39,6 @@ export class App extends React.Component<{}, AppState> {
     this.setState({
       user: user
     })
-    console.log("Setting username to: " + user)
   }
 
   render() {
