@@ -13,8 +13,6 @@ describe('Navbar test suite', () => {
         userName: 'user'
     }
 
-    const baseLink = 'http://localhost';
-
     afterEach(() => {
         jest.clearAllMocks();
     })
