@@ -1,13 +1,11 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 import React from "react";
 import { ConfirmModalComponent } from "../../../src/Components/spaces/ConfirmModalComponent";
-import ReactDOM from "react-dom";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 
 describe("Confirm modal test suite", () => {
     const closeMock = jest.fn();
 
-    let container: HTMLDivElement;
     test("Setup test showing modal", () => {
         act(() => {
             render(
