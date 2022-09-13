@@ -35,6 +35,9 @@ export class Login extends React.Component<LoginProps, LoginState> {
         this.setState({ password: event.target.value })
     }
 
+    // When the user submits the info in the form
+    // It will verify if everything is true
+    // If it's not true then they will receive an error message underneath
     private async handleSubmit(event: SyntheticEvent) {
         event.preventDefault()
         this.setState({ loginAttempted: true })

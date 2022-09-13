@@ -8,6 +8,7 @@ export class Navbar extends React.Component<{
     render() {
         let loginLogOut: any
 
+        // Login button will change depending if there is a user or not
         if (this.props.user) {
             loginLogOut = <Link to='/logout' style={{ float: 'right' }}>Logout</Link>
         } else {

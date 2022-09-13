@@ -1,3 +1,5 @@
+// When a user tries to reserve a spot
+// This component will pop up on screen and show the user results depending on the ID 
 import { Component } from "react";
 
 interface ConfirmModalComponentProps {

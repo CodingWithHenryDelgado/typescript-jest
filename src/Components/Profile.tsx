@@ -35,6 +35,9 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
         )
     }
 
+    // When this page is called and the user is logged in
+    // The information will be shown in a table
+    // The information will be stored in the state
     async componentDidMount() {
         if (this.props.user) {
             const userAltrs = await this.props.authService.getUserAttributes(this.props.user);

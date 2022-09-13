@@ -1,3 +1,5 @@
+// SpaceComponents show hotel with ID, Reserve button, Picture (sometimes), Location, and Name
+// The Reserve in the SpaceComponent is attached to the Confirm Modal Component
 import { Component } from "react";
 
 interface SpaceComponentProps {
